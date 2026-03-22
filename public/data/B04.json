@@ -1,0 +1,127 @@
+{
+    "benchmarkId": "B04",
+    "benchmarkName": "Serialization Formats",
+    "version": "1.0.0",
+    "runAt": "2026-03-21T20:08:27.070524Z",
+    "environment": {
+        "hostCpuCores": 10,
+        "hostMemoryGb": 64,
+        "dockerVersion": "unknown",
+        "jvmVersion": "24.0.2",
+        "kotlinVersion": "2.2.21"
+    },
+    "scenarios": [
+        {
+            "name": "Serialization-JSON",
+            "database": "N/A",
+            "iterations": 100000,
+            "concurrency": 1,
+            "metrics": {
+                "p50Ms": 0.002083,
+                "p95Ms": 0.004583,
+                "p99Ms": 0.008708,
+                "throughputOpsPerSec": 480076.8122899664,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 0
+            }
+        },
+        {
+            "name": "Deserialization-JSON",
+            "database": "N/A",
+            "iterations": 100000,
+            "concurrency": 1,
+            "metrics": {
+                "p50Ms": 0.003583,
+                "p95Ms": 0.006666,
+                "p99Ms": 0.014208,
+                "throughputOpsPerSec": 279095.72983533354,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 0
+            }
+        },
+        {
+            "name": "Serialization-MessagePack",
+            "database": "N/A",
+            "iterations": 100000,
+            "concurrency": 1,
+            "metrics": {
+                "p50Ms": 0.002166,
+                "p95Ms": 0.004417,
+                "p99Ms": 0.006042,
+                "throughputOpsPerSec": 461680.51708217914,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 0
+            }
+        },
+        {
+            "name": "Deserialization-MessagePack",
+            "database": "N/A",
+            "iterations": 100000,
+            "concurrency": 1,
+            "metrics": {
+                "p50Ms": 0.004125,
+                "p95Ms": 0.007375,
+                "p99Ms": 0.016375,
+                "throughputOpsPerSec": 242424.24242424243,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 0
+            }
+        },
+        {
+            "name": "Serialization-Avro",
+            "database": "N/A",
+            "iterations": 100000,
+            "concurrency": 1,
+            "metrics": {
+                "p50Ms": 7.5E-4,
+                "p95Ms": 0.001875,
+                "p99Ms": 0.00425,
+                "throughputOpsPerSec": 1333333.3333333333,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 0
+            }
+        },
+        {
+            "name": "Deserialization-Avro",
+            "database": "N/A",
+            "iterations": 100000,
+            "concurrency": 1,
+            "metrics": {
+                "p50Ms": 0.002,
+                "p95Ms": 0.002958,
+                "p99Ms": 0.005125,
+                "throughputOpsPerSec": 500000.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 0
+            }
+        },
+        {
+            "name": "Serialization-Protobuf",
+            "database": "N/A",
+            "iterations": 100000,
+            "concurrency": 1,
+            "metrics": {
+                "p50Ms": 0.006166,
+                "p95Ms": 0.00975,
+                "p99Ms": 0.016875,
+                "throughputOpsPerSec": 162179.6951021732,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 0
+            }
+        },
+        {
+            "name": "Deserialization-Protobuf",
+            "database": "N/A",
+            "iterations": 100000,
+            "concurrency": 1,
+            "metrics": {
+                "p50Ms": 0.002833,
+                "p95Ms": 0.006334,
+                "p99Ms": 0.012083,
+                "throughputOpsPerSec": 352982.7038475115,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 0
+            }
+        }
+    ]
+}
