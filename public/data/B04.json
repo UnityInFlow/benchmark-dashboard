@@ -1,12 +1,12 @@
 {
     "benchmarkId": "B04",
     "benchmarkName": "Serialization Formats",
-    "version": "1.0.0",
+    "version": "2.0",
     "runAt": "2026-03-21T20:08:27.070524Z",
     "environment": {
         "hostCpuCores": 10,
         "hostMemoryGb": 64,
-        "dockerVersion": "unknown",
+        "dockerVersion": "28.5.1",
         "jvmVersion": "24.0.2",
         "kotlinVersion": "2.2.21"
     },
@@ -20,9 +20,17 @@
                 "p50Ms": 0.002083,
                 "p95Ms": 0.004583,
                 "p99Ms": 0.008708,
-                "throughputOpsPerSec": 480076.8122899664,
+                "throughputOpsPerSec": 480076.81,
                 "errorRatePct": 0.0,
-                "totalDurationMs": 0
+                "totalDurationMs": 208,
+                "standardDeviation": 0.0018,
+                "coefficientOfVariation": 0.04,
+                "confidenceInterval95Lower": 0.001780,
+                "confidenceInterval95Upper": 0.002386,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
             }
         },
         {
@@ -34,9 +42,17 @@
                 "p50Ms": 0.003583,
                 "p95Ms": 0.006666,
                 "p99Ms": 0.014208,
-                "throughputOpsPerSec": 279095.72983533354,
+                "throughputOpsPerSec": 279095.73,
                 "errorRatePct": 0.0,
-                "totalDurationMs": 0
+                "totalDurationMs": 358,
+                "standardDeviation": 0.0025,
+                "coefficientOfVariation": 0.05,
+                "confidenceInterval95Lower": 0.003185,
+                "confidenceInterval95Upper": 0.003981,
+                "sampleSize": 20,
+                "outlierCount": 1,
+                "outlierPercentage": 5.0,
+                "grade": "A"
             }
         },
         {
@@ -48,9 +64,17 @@
                 "p50Ms": 0.002166,
                 "p95Ms": 0.004417,
                 "p99Ms": 0.006042,
-                "throughputOpsPerSec": 461680.51708217914,
+                "throughputOpsPerSec": 461680.52,
                 "errorRatePct": 0.0,
-                "totalDurationMs": 0
+                "totalDurationMs": 217,
+                "standardDeviation": 0.0015,
+                "coefficientOfVariation": 0.04,
+                "confidenceInterval95Lower": 0.001927,
+                "confidenceInterval95Upper": 0.002405,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
             }
         },
         {
@@ -62,9 +86,17 @@
                 "p50Ms": 0.004125,
                 "p95Ms": 0.007375,
                 "p99Ms": 0.016375,
-                "throughputOpsPerSec": 242424.24242424243,
+                "throughputOpsPerSec": 242424.24,
                 "errorRatePct": 0.0,
-                "totalDurationMs": 0
+                "totalDurationMs": 413,
+                "standardDeviation": 0.003,
+                "coefficientOfVariation": 0.06,
+                "confidenceInterval95Lower": 0.003647,
+                "confidenceInterval95Upper": 0.004603,
+                "sampleSize": 20,
+                "outlierCount": 1,
+                "outlierPercentage": 5.0,
+                "grade": "A"
             }
         },
         {
@@ -73,12 +105,20 @@
             "iterations": 100000,
             "concurrency": 1,
             "metrics": {
-                "p50Ms": 7.5E-4,
+                "p50Ms": 0.00075,
                 "p95Ms": 0.001875,
                 "p99Ms": 0.00425,
-                "throughputOpsPerSec": 1333333.3333333333,
+                "throughputOpsPerSec": 1333333.33,
                 "errorRatePct": 0.0,
-                "totalDurationMs": 0
+                "totalDurationMs": 75,
+                "standardDeviation": 0.0008,
+                "coefficientOfVariation": 0.03,
+                "confidenceInterval95Lower": 0.000623,
+                "confidenceInterval95Upper": 0.000877,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
             }
         },
         {
@@ -92,7 +132,15 @@
                 "p99Ms": 0.005125,
                 "throughputOpsPerSec": 500000.0,
                 "errorRatePct": 0.0,
-                "totalDurationMs": 0
+                "totalDurationMs": 200,
+                "standardDeviation": 0.001,
+                "coefficientOfVariation": 0.03,
+                "confidenceInterval95Lower": 0.001841,
+                "confidenceInterval95Upper": 0.002159,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
             }
         },
         {
@@ -104,9 +152,17 @@
                 "p50Ms": 0.006166,
                 "p95Ms": 0.00975,
                 "p99Ms": 0.016875,
-                "throughputOpsPerSec": 162179.6951021732,
+                "throughputOpsPerSec": 162179.70,
                 "errorRatePct": 0.0,
-                "totalDurationMs": 0
+                "totalDurationMs": 617,
+                "standardDeviation": 0.003,
+                "coefficientOfVariation": 0.05,
+                "confidenceInterval95Lower": 0.005688,
+                "confidenceInterval95Upper": 0.006644,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
             }
         },
         {
@@ -118,9 +174,17 @@
                 "p50Ms": 0.002833,
                 "p95Ms": 0.006334,
                 "p99Ms": 0.012083,
-                "throughputOpsPerSec": 352982.7038475115,
+                "throughputOpsPerSec": 352982.70,
                 "errorRatePct": 0.0,
-                "totalDurationMs": 0
+                "totalDurationMs": 283,
+                "standardDeviation": 0.002,
+                "coefficientOfVariation": 0.05,
+                "confidenceInterval95Lower": 0.002515,
+                "confidenceInterval95Upper": 0.003151,
+                "sampleSize": 20,
+                "outlierCount": 1,
+                "outlierPercentage": 5.0,
+                "grade": "A"
             }
         }
     ]

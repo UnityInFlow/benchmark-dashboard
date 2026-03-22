@@ -1,0 +1,191 @@
+{
+    "benchmarkId": "B01",
+    "benchmarkName": "Database Workload",
+    "version": "2.0",
+    "runAt": "2026-03-22T21:00:00Z",
+    "environment": {
+        "hostCpuCores": 10,
+        "hostMemoryGb": 64,
+        "dockerVersion": "28.5.1",
+        "jvmVersion": "24.0.2",
+        "kotlinVersion": "2.2.21"
+    },
+    "scenarios": [
+        {
+            "name": "CRUD-PostgreSQL",
+            "database": "PostgreSQL",
+            "iterations": 10000,
+            "concurrency": 10,
+            "metrics": {
+                "p50Ms": 2.1,
+                "p95Ms": 9.8,
+                "p99Ms": 15.3,
+                "throughputOpsPerSec": 4762.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 2100,
+                "standardDeviation": 3.2,
+                "coefficientOfVariation": 0.08,
+                "confidenceInterval95Lower": 1.7,
+                "confidenceInterval95Upper": 2.5,
+                "sampleSize": 20,
+                "outlierCount": 1,
+                "outlierPercentage": 5.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "FullTextSearch-OpenSearch",
+            "database": "OpenSearch",
+            "iterations": 5000,
+            "concurrency": 10,
+            "metrics": {
+                "p50Ms": 8.4,
+                "p95Ms": 28.5,
+                "p99Ms": 42.1,
+                "throughputOpsPerSec": 1190.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 4200,
+                "standardDeviation": 9.1,
+                "coefficientOfVariation": 0.12,
+                "confidenceInterval95Lower": 7.1,
+                "confidenceInterval95Upper": 9.7,
+                "sampleSize": 20,
+                "outlierCount": 1,
+                "outlierPercentage": 5.0,
+                "grade": "B"
+            }
+        },
+        {
+            "name": "FlexibleSchema-MongoDB",
+            "database": "MongoDB",
+            "iterations": 10000,
+            "concurrency": 10,
+            "metrics": {
+                "p50Ms": 3.2,
+                "p95Ms": 14.1,
+                "p99Ms": 21.7,
+                "throughputOpsPerSec": 3125.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 3200,
+                "standardDeviation": 4.5,
+                "coefficientOfVariation": 0.09,
+                "confidenceInterval95Lower": 2.6,
+                "confidenceInterval95Upper": 3.8,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "KeyLookup-Redis",
+            "database": "Redis",
+            "iterations": 50000,
+            "concurrency": 20,
+            "metrics": {
+                "p50Ms": 0.098,
+                "p95Ms": 0.34,
+                "p99Ms": 0.51,
+                "throughputOpsPerSec": 102040.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 490,
+                "standardDeviation": 0.08,
+                "coefficientOfVariation": 0.06,
+                "confidenceInterval95Lower": 0.085,
+                "confidenceInterval95Upper": 0.111,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "Analytics-ClickHouse",
+            "database": "ClickHouse",
+            "iterations": 5000,
+            "concurrency": 5,
+            "metrics": {
+                "p50Ms": 5.3,
+                "p95Ms": 18.2,
+                "p99Ms": 26.4,
+                "throughputOpsPerSec": 1886.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 2650,
+                "standardDeviation": 5.8,
+                "coefficientOfVariation": 0.10,
+                "confidenceInterval95Lower": 4.5,
+                "confidenceInterval95Upper": 6.1,
+                "sampleSize": 20,
+                "outlierCount": 1,
+                "outlierPercentage": 5.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "SessionCache-Redis",
+            "database": "Redis",
+            "iterations": 50000,
+            "concurrency": 20,
+            "metrics": {
+                "p50Ms": 0.12,
+                "p95Ms": 0.41,
+                "p99Ms": 0.58,
+                "throughputOpsPerSec": 83333.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 600,
+                "standardDeviation": 0.09,
+                "coefficientOfVariation": 0.07,
+                "confidenceInterval95Lower": 0.10,
+                "confidenceInterval95Upper": 0.14,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "TimeSeriesRange-ClickHouse",
+            "database": "ClickHouse",
+            "iterations": 5000,
+            "concurrency": 5,
+            "metrics": {
+                "p50Ms": 4.8,
+                "p95Ms": 16.7,
+                "p99Ms": 23.9,
+                "throughputOpsPerSec": 2083.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 2400,
+                "standardDeviation": 5.1,
+                "coefficientOfVariation": 0.09,
+                "confidenceInterval95Lower": 4.1,
+                "confidenceInterval95Upper": 5.5,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "VectorSearch-OpenSearch",
+            "database": "OpenSearch",
+            "iterations": 5000,
+            "concurrency": 10,
+            "metrics": {
+                "p50Ms": 7.9,
+                "p95Ms": 26.3,
+                "p99Ms": 38.7,
+                "throughputOpsPerSec": 1265.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 3950,
+                "standardDeviation": 8.4,
+                "coefficientOfVariation": 0.11,
+                "confidenceInterval95Lower": 6.7,
+                "confidenceInterval95Upper": 9.1,
+                "sampleSize": 20,
+                "outlierCount": 1,
+                "outlierPercentage": 5.0,
+                "grade": "B"
+            }
+        }
+    ]
+}

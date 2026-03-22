@@ -1,0 +1,147 @@
+{
+    "benchmarkId": "B09",
+    "benchmarkName": "Rate Limiting",
+    "version": "2.0",
+    "runAt": "2026-03-22T21:00:00Z",
+    "environment": {
+        "hostCpuCores": 10,
+        "hostMemoryGb": 64,
+        "dockerVersion": "28.5.1",
+        "jvmVersion": "24.0.2",
+        "kotlinVersion": "2.2.21"
+    },
+    "scenarios": [
+        {
+            "name": "FixedWindow-Redis",
+            "database": "Redis",
+            "iterations": 50000,
+            "concurrency": 20,
+            "metrics": {
+                "p50Ms": 0.12,
+                "p95Ms": 0.58,
+                "p99Ms": 1.2,
+                "throughputOpsPerSec": 416666.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 120,
+                "standardDeviation": 0.15,
+                "coefficientOfVariation": 0.05,
+                "confidenceInterval95Lower": 0.098,
+                "confidenceInterval95Upper": 0.142,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "SlidingWindowCounter-Redis",
+            "database": "Redis",
+            "iterations": 50000,
+            "concurrency": 20,
+            "metrics": {
+                "p50Ms": 0.18,
+                "p95Ms": 0.82,
+                "p99Ms": 1.8,
+                "throughputOpsPerSec": 277777.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 180,
+                "standardDeviation": 0.22,
+                "coefficientOfVariation": 0.06,
+                "confidenceInterval95Lower": 0.145,
+                "confidenceInterval95Upper": 0.215,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "TokenBucket-Redis",
+            "database": "Redis",
+            "iterations": 50000,
+            "concurrency": 20,
+            "metrics": {
+                "p50Ms": 0.15,
+                "p95Ms": 0.72,
+                "p99Ms": 1.5,
+                "throughputOpsPerSec": 333333.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 150,
+                "standardDeviation": 0.18,
+                "coefficientOfVariation": 0.05,
+                "confidenceInterval95Lower": 0.122,
+                "confidenceInterval95Upper": 0.178,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "LeakyBucket-Redis",
+            "database": "Redis",
+            "iterations": 50000,
+            "concurrency": 20,
+            "metrics": {
+                "p50Ms": 0.14,
+                "p95Ms": 0.68,
+                "p99Ms": 1.4,
+                "throughputOpsPerSec": 357142.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 140,
+                "standardDeviation": 0.17,
+                "coefficientOfVariation": 0.05,
+                "confidenceInterval95Lower": 0.113,
+                "confidenceInterval95Upper": 0.167,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "SlidingWindowLog-Redis",
+            "database": "Redis",
+            "iterations": 50000,
+            "concurrency": 20,
+            "metrics": {
+                "p50Ms": 0.45,
+                "p95Ms": 2.8,
+                "p99Ms": 5.1,
+                "throughputOpsPerSec": 111111.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 450,
+                "standardDeviation": 0.82,
+                "coefficientOfVariation": 0.10,
+                "confidenceInterval95Lower": 0.32,
+                "confidenceInterval95Upper": 0.58,
+                "sampleSize": 20,
+                "outlierCount": 1,
+                "outlierPercentage": 5.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "AdaptiveLimit-Redis",
+            "database": "Redis",
+            "iterations": 20000,
+            "concurrency": 20,
+            "metrics": {
+                "p50Ms": 0.28,
+                "p95Ms": 1.5,
+                "p99Ms": 3.2,
+                "throughputOpsPerSec": 178571.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 112,
+                "standardDeviation": 0.45,
+                "coefficientOfVariation": 0.08,
+                "confidenceInterval95Lower": 0.21,
+                "confidenceInterval95Upper": 0.35,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        }
+    ]
+}

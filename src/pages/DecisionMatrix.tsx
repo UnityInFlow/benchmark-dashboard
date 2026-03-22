@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import type { BenchmarkResult } from '../types/benchmark'
 import { getGradeColor } from '../data/loader'
+import { exportToPdf, exportToMarkdown } from '../utils/export'
 
 interface TechScore {
   technology: string
@@ -15,6 +16,7 @@ interface TechScore {
 export function DecisionMatrix() {
   const [scores, setScores] = useState<TechScore[]>([])
   const [sortBy, setSortBy] = useState<keyof TechScore>('avgP50')
+  const [toast, setToast] = useState<string | null>(null)
 
   useEffect(() => {
     const ids = ['B01','B02','B03','B04','B05','B06','B07','B08','B09','B10','B11','B12']
@@ -63,12 +65,65 @@ export function DecisionMatrix() {
     return String(aVal).localeCompare(String(bVal))
   })
 
+  const showToast = useCallback((message: string) => {
+    setToast(message)
+    setTimeout(() => setToast(null), 3000)
+  }, [])
+
+  const handleExportMarkdown = useCallback(() => {
+    const headers = ['Technology', 'Scenarios', 'Avg p50 (ms)', 'Avg p99 (ms)', 'Avg Throughput', 'Grade', 'Benchmarks']
+    const rows = sorted.map(s => [
+      s.technology,
+      String(s.scenarioCount),
+      s.avgP50.toFixed(3),
+      s.avgP99.toFixed(3),
+      s.avgThroughput.toFixed(0),
+      s.avgGrade,
+      s.benchmarks.join(', '),
+    ])
+    const markdown = exportToMarkdown(headers, rows)
+    navigator.clipboard.writeText(markdown).then(() => {
+      showToast('Copied to clipboard')
+    }).catch(() => {
+      showToast('Failed to copy to clipboard')
+    })
+  }, [sorted, showToast])
+
+  const handleExportPdf = useCallback(async () => {
+    showToast('Generating PDF...')
+    await exportToPdf('decision-matrix-table', 'decision-matrix.pdf')
+    showToast('PDF downloaded')
+  }, [showToast])
+
   return (
     <div>
-      <h1 className="text-3xl font-bold text-gray-900 mb-2">Decision Matrix</h1>
+      <div className="flex items-center justify-between mb-2">
+        <h1 className="text-3xl font-bold text-gray-900">Decision Matrix</h1>
+        <div className="flex gap-2">
+          <button
+            onClick={handleExportMarkdown}
+            className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            Copy Markdown
+          </button>
+          <button
+            onClick={handleExportPdf}
+            className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Export PDF
+          </button>
+        </div>
+      </div>
       <p className="text-gray-500 mb-6">Technology comparison across all benchmarks — click headers to sort</p>
 
-      <div className="bg-white rounded-xl border overflow-hidden">
+      {/* Toast notification */}
+      {toast && (
+        <div className="fixed bottom-6 right-6 bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg text-sm z-50 animate-fade-in">
+          {toast}
+        </div>
+      )}
+
+      <div id="decision-matrix-table" className="bg-white rounded-xl border overflow-hidden">
         <table className="w-full text-sm">
           <thead className="bg-gray-50 text-left text-gray-600">
             <tr>
