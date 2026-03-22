@@ -1,0 +1,103 @@
+{
+    "benchmarkId": "B06",
+    "benchmarkName": "Connection Pool",
+    "version": "2.0",
+    "runAt": "2026-03-22T21:00:00Z",
+    "environment": {
+        "hostCpuCores": 10,
+        "hostMemoryGb": 64,
+        "dockerVersion": "28.5.1",
+        "jvmVersion": "24.0.2",
+        "kotlinVersion": "2.2.21"
+    },
+    "scenarios": [
+        {
+            "name": "PoolSize5-FastQuery",
+            "database": "PostgreSQL",
+            "iterations": 20000,
+            "concurrency": 50,
+            "metrics": {
+                "p50Ms": 1.2,
+                "p95Ms": 3.8,
+                "p99Ms": 5.4,
+                "throughputOpsPerSec": 8333.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 2400,
+                "standardDeviation": 1.1,
+                "coefficientOfVariation": 0.06,
+                "confidenceInterval95Lower": 1.0,
+                "confidenceInterval95Upper": 1.4,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "PoolSize10-FastQuery",
+            "database": "PostgreSQL",
+            "iterations": 20000,
+            "concurrency": 50,
+            "metrics": {
+                "p50Ms": 0.9,
+                "p95Ms": 2.8,
+                "p99Ms": 4.1,
+                "throughputOpsPerSec": 11111.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 1800,
+                "standardDeviation": 0.8,
+                "coefficientOfVariation": 0.05,
+                "confidenceInterval95Lower": 0.75,
+                "confidenceInterval95Upper": 1.05,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "PoolSize20-MediumQuery",
+            "database": "PostgreSQL",
+            "iterations": 10000,
+            "concurrency": 100,
+            "metrics": {
+                "p50Ms": 15.3,
+                "p95Ms": 85.6,
+                "p99Ms": 142.8,
+                "throughputOpsPerSec": 653.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 15300,
+                "standardDeviation": 28.4,
+                "coefficientOfVariation": 0.15,
+                "confidenceInterval95Lower": 11.1,
+                "confidenceInterval95Upper": 19.5,
+                "sampleSize": 20,
+                "outlierCount": 2,
+                "outlierPercentage": 10.0,
+                "grade": "B"
+            }
+        },
+        {
+            "name": "PoolSize50-SlowQuery",
+            "database": "PostgreSQL",
+            "iterations": 5000,
+            "concurrency": 200,
+            "metrics": {
+                "p50Ms": 102.4,
+                "p95Ms": 385.2,
+                "p99Ms": 512.7,
+                "throughputOpsPerSec": 97.0,
+                "errorRatePct": 0.2,
+                "totalDurationMs": 51200,
+                "standardDeviation": 95.8,
+                "coefficientOfVariation": 0.22,
+                "confidenceInterval95Lower": 72.1,
+                "confidenceInterval95Upper": 132.7,
+                "sampleSize": 20,
+                "outlierCount": 3,
+                "outlierPercentage": 15.0,
+                "grade": "B"
+            }
+        }
+    ]
+}

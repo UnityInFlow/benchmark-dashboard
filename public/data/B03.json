@@ -1,0 +1,191 @@
+{
+    "benchmarkId": "B03",
+    "benchmarkName": "Caching Strategies",
+    "version": "2.0",
+    "runAt": "2026-03-22T21:00:00Z",
+    "environment": {
+        "hostCpuCores": 10,
+        "hostMemoryGb": 64,
+        "dockerVersion": "28.5.1",
+        "jvmVersion": "24.0.2",
+        "kotlinVersion": "2.2.21"
+    },
+    "scenarios": [
+        {
+            "name": "CacheAside-Redis",
+            "database": "Redis",
+            "iterations": 50000,
+            "concurrency": 20,
+            "metrics": {
+                "p50Ms": 0.052,
+                "p95Ms": 0.31,
+                "p99Ms": 0.48,
+                "throughputOpsPerSec": 192307.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 260,
+                "standardDeviation": 0.06,
+                "coefficientOfVariation": 0.05,
+                "confidenceInterval95Lower": 0.042,
+                "confidenceInterval95Upper": 0.062,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "WriteThrough-Redis",
+            "database": "Redis",
+            "iterations": 20000,
+            "concurrency": 10,
+            "metrics": {
+                "p50Ms": 5.1,
+                "p95Ms": 15.8,
+                "p99Ms": 21.3,
+                "throughputOpsPerSec": 1960.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 10200,
+                "standardDeviation": 4.2,
+                "coefficientOfVariation": 0.09,
+                "confidenceInterval95Lower": 4.4,
+                "confidenceInterval95Upper": 5.8,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "WriteBehind-Redis",
+            "database": "Redis",
+            "iterations": 20000,
+            "concurrency": 10,
+            "metrics": {
+                "p50Ms": 0.08,
+                "p95Ms": 0.35,
+                "p99Ms": 0.52,
+                "throughputOpsPerSec": 125000.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 160,
+                "standardDeviation": 0.07,
+                "coefficientOfVariation": 0.06,
+                "confidenceInterval95Lower": 0.065,
+                "confidenceInterval95Upper": 0.095,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "Stampede-Redis",
+            "database": "Redis",
+            "iterations": 5000,
+            "concurrency": 50,
+            "metrics": {
+                "p50Ms": 10.4,
+                "p95Ms": 68.2,
+                "p99Ms": 105.7,
+                "throughputOpsPerSec": 961.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 5200,
+                "standardDeviation": 22.5,
+                "coefficientOfVariation": 0.18,
+                "confidenceInterval95Lower": 7.2,
+                "confidenceInterval95Upper": 13.6,
+                "sampleSize": 20,
+                "outlierCount": 2,
+                "outlierPercentage": 10.0,
+                "grade": "B"
+            }
+        },
+        {
+            "name": "Eviction-Caffeine",
+            "database": "Caffeine",
+            "iterations": 100000,
+            "concurrency": 10,
+            "metrics": {
+                "p50Ms": 0.003,
+                "p95Ms": 0.012,
+                "p99Ms": 0.028,
+                "throughputOpsPerSec": 3333333.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 30,
+                "standardDeviation": 0.005,
+                "coefficientOfVariation": 0.04,
+                "confidenceInterval95Lower": 0.002,
+                "confidenceInterval95Upper": 0.004,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "ReadThrough-Redis",
+            "database": "Redis",
+            "iterations": 20000,
+            "concurrency": 10,
+            "metrics": {
+                "p50Ms": 4.8,
+                "p95Ms": 14.2,
+                "p99Ms": 19.7,
+                "throughputOpsPerSec": 2083.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 9600,
+                "standardDeviation": 3.8,
+                "coefficientOfVariation": 0.08,
+                "confidenceInterval95Lower": 4.1,
+                "confidenceInterval95Upper": 5.5,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "MultiTierCache-Caffeine-Redis",
+            "database": "Caffeine",
+            "iterations": 50000,
+            "concurrency": 20,
+            "metrics": {
+                "p50Ms": 0.008,
+                "p95Ms": 0.42,
+                "p99Ms": 0.61,
+                "throughputOpsPerSec": 1250000.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 40,
+                "standardDeviation": 0.15,
+                "coefficientOfVariation": 0.10,
+                "confidenceInterval95Lower": 0.005,
+                "confidenceInterval95Upper": 0.011,
+                "sampleSize": 20,
+                "outlierCount": 1,
+                "outlierPercentage": 5.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "TtlTuning-Redis",
+            "database": "Redis",
+            "iterations": 20000,
+            "concurrency": 10,
+            "metrics": {
+                "p50Ms": 0.062,
+                "p95Ms": 0.38,
+                "p99Ms": 0.55,
+                "throughputOpsPerSec": 161290.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 124,
+                "standardDeviation": 0.07,
+                "coefficientOfVariation": 0.06,
+                "confidenceInterval95Lower": 0.051,
+                "confidenceInterval95Upper": 0.073,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        }
+    ]
+}

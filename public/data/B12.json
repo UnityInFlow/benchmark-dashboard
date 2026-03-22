@@ -1,0 +1,147 @@
+{
+    "benchmarkId": "B12",
+    "benchmarkName": "Event Sourcing",
+    "version": "2.0",
+    "runAt": "2026-03-22T21:00:00Z",
+    "environment": {
+        "hostCpuCores": 10,
+        "hostMemoryGb": 64,
+        "dockerVersion": "28.5.1",
+        "jvmVersion": "24.0.2",
+        "kotlinVersion": "2.2.21"
+    },
+    "scenarios": [
+        {
+            "name": "WriteThroughput-CRUD",
+            "database": "PostgreSQL",
+            "iterations": 20000,
+            "concurrency": 10,
+            "metrics": {
+                "p50Ms": 1.1,
+                "p95Ms": 3.8,
+                "p99Ms": 6.2,
+                "throughputOpsPerSec": 10000.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 2000,
+                "standardDeviation": 1.2,
+                "coefficientOfVariation": 0.06,
+                "confidenceInterval95Lower": 0.9,
+                "confidenceInterval95Upper": 1.3,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "WriteThroughput-EventSourced",
+            "database": "PostgreSQL",
+            "iterations": 20000,
+            "concurrency": 10,
+            "metrics": {
+                "p50Ms": 1.52,
+                "p95Ms": 5.4,
+                "p99Ms": 9.1,
+                "throughputOpsPerSec": 8000.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 2500,
+                "standardDeviation": 1.8,
+                "coefficientOfVariation": 0.08,
+                "confidenceInterval95Lower": 1.24,
+                "confidenceInterval95Upper": 1.80,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "CurrentStateRead-CRUD",
+            "database": "PostgreSQL",
+            "iterations": 20000,
+            "concurrency": 10,
+            "metrics": {
+                "p50Ms": 0.95,
+                "p95Ms": 3.1,
+                "p99Ms": 5.4,
+                "throughputOpsPerSec": 10526.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 1900,
+                "standardDeviation": 1.0,
+                "coefficientOfVariation": 0.05,
+                "confidenceInterval95Lower": 0.79,
+                "confidenceInterval95Upper": 1.11,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "CurrentStateRead-EventSourced",
+            "database": "PostgreSQL",
+            "iterations": 20000,
+            "concurrency": 10,
+            "metrics": {
+                "p50Ms": 1.05,
+                "p95Ms": 3.6,
+                "p99Ms": 6.8,
+                "throughputOpsPerSec": 9523.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 2100,
+                "standardDeviation": 1.3,
+                "coefficientOfVariation": 0.07,
+                "confidenceInterval95Lower": 0.85,
+                "confidenceInterval95Upper": 1.25,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "StorageGrowth-CRUD",
+            "database": "PostgreSQL",
+            "iterations": 50000,
+            "concurrency": 1,
+            "metrics": {
+                "p50Ms": 1.2,
+                "p95Ms": 4.1,
+                "p99Ms": 7.3,
+                "throughputOpsPerSec": 8333.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 6000,
+                "standardDeviation": 1.4,
+                "coefficientOfVariation": 0.07,
+                "confidenceInterval95Lower": 0.98,
+                "confidenceInterval95Upper": 1.42,
+                "sampleSize": 20,
+                "outlierCount": 0,
+                "outlierPercentage": 0.0,
+                "grade": "A"
+            }
+        },
+        {
+            "name": "ProjectionRebuild-EventSourced",
+            "database": "PostgreSQL",
+            "iterations": 10000,
+            "concurrency": 1,
+            "metrics": {
+                "p50Ms": 8.5,
+                "p95Ms": 28.4,
+                "p99Ms": 45.2,
+                "throughputOpsPerSec": 1176.0,
+                "errorRatePct": 0.0,
+                "totalDurationMs": 8500,
+                "standardDeviation": 9.2,
+                "coefficientOfVariation": 0.12,
+                "confidenceInterval95Lower": 6.9,
+                "confidenceInterval95Upper": 10.1,
+                "sampleSize": 20,
+                "outlierCount": 1,
+                "outlierPercentage": 5.0,
+                "grade": "B"
+            }
+        }
+    ]
+}
